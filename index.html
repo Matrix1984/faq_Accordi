@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
 
@@ -116,14 +116,37 @@
       padding-bottom: 1.5em;
     }
 
-    .answer {}
+    .question:hover {
+      cursor: pointer;
+      color: hsl(292, 42%, 14%);
+    }
+
+
+    @media screen and (max-width: 1440px) {
+      .container {
+        margin-left: auto;
+        margin-right: auto;
+        background-color: white;
+        z-index: 1;
+        top: 143px;
+        border-radius: 7px;
+        width: 80%;
+        margin-top: 24px;
+      }
+
+      .header-part {
+        background: url(./assets/images/background-pattern-mobile.svg);
+        height: 26%;
+        width: 100%;
+        position: relative;
+      }
+    }
   </style>
 </head>
 
 <body>
 
   <div class="header-part">
-    f
     <div class="container">
 
       <div class="content-wrapper">
@@ -205,23 +228,41 @@
 
   <script>
     window.onload = function () {
-      $(".question-icon > img").on("click", function () { 
+      $(".question-icon > img").on("click", function () {
 
-        var answerDomElement=$(this).parent().parent().parent().find(".answer");
+        var answerDomElement = $(this).parent().parent().parent().find(".answer");
 
-        console.log($(this).parent().parent().parent().find(".answer"));
+        var image = $(this).attr('src');
 
-        var image=$(this).attr('src');
-
-        if(image.indexOf("icon-plus")>-1){
+        if (image.indexOf("icon-plus") > -1) {
           $(this).attr("src", "assets/images/icon-minus.svg");
           $(answerDomElement).hide();
         }
-        else{
+        else {
           $(this).attr("src", "assets/images/icon-plus.svg");
-          $( answerDomElement ).show();
+          $(answerDomElement).show();
         }
-       
+
+      });
+
+
+      $(".question").on("click", function () {
+
+        var answerDomElement = $(this).parent().parent().find(".answer");
+
+        var imageElement = $(this).parent().find(".question-icon > img");
+
+        var image = $(imageElement).attr('src');
+
+        if (image.indexOf("icon-plus") > -1) {
+          $(imageElement).attr("src", "assets/images/icon-minus.svg");
+          $(answerDomElement).hide();
+        }
+        else {
+          $(imageElement).attr("src", "assets/images/icon-plus.svg");
+          $(answerDomElement).show();
+        }
+
       });
     }
   </script>
