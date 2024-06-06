@@ -40,14 +40,14 @@
     .header-part {
       background: url(./assets/images/background-pattern-mobile.svg);
       height: 31%;
-      width: 100vh;
+      width: 100%;
       position: relative;
-    } 
+    }
 
     .container {
       position: absolute;
       left: 0;
-      right: -21%;
+      right: 0;
       margin-left: auto;
       margin-right: auto;
       width: 100px;
@@ -84,30 +84,30 @@
 
     .qa-container {
       display: flex;
-      flex-direction: column; 
-      
-    } 
+      flex-direction: column;
 
-    .qa-wrapper{
+    }
+
+    .qa-wrapper {
       padding-bottom: 3.5em;
     }
 
-    .question-wrapper{
+    .question-wrapper {
       display: flex;
-      flex-direction: row; 
-      flex-wrap: nowrap; 
+      flex-direction: row;
+      flex-wrap: nowrap;
       justify-content: space-between;
-   
+
     }
 
-    .question-icon{ 
+    .question-icon {
       width: 95%;
       text-align: end;
       width: fit-content;
     }
 
-    .question-icon > img:hover{
-      cursor:pointer;
+    .question-icon>img:hover {
+      cursor: pointer;
     }
 
     .question {
@@ -123,13 +123,13 @@
 <body>
 
   <div class="header-part">
-f
+    f
     <div class="container">
 
       <div class="content-wrapper">
         <div class="title-faq">
           <span>
-            <img src="../faq-accordion-main/assets/images/icon-star.svg" />
+            <img src="../faq_Accordi/assets/images/icon-star.svg" />
           </span>
           <span>
             FAQs
@@ -140,13 +140,13 @@ f
 
           <div class="qa-wrapper">
             <div class="question-wrapper">
-            <span class="question">
-              What is Frontend Mentor, and how will it help me?
-            </span>
-            <span class="question-icon">
-              <img src="assets/images/icon-plus.svg"/>
-            </span>
-          </div>
+              <span class="question">
+                What is Frontend Mentor, and how will it help me?
+              </span>
+              <span class="question-icon">
+                <img src="assets/images/icon-plus.svg" />
+              </span>
+            </div>
             <div class="answer">
               Frontend Mentor offers realistic coding challenges to help developers improve their
               frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for
@@ -154,13 +154,13 @@ f
             </div>
           </div>
 
-          <div class="qa-wrapper"> 
+          <div class="qa-wrapper">
             <div class="question-wrapper">
               <span class="question">
                 Is Frontend Mentor free?
               </span>
               <span class="question-icon">
-                <img src="assets/images/icon-plus.svg"/>
+                <img src="assets/images/icon-plus.svg" />
               </span>
             </div>
             <div class="answer">
@@ -169,14 +169,14 @@ f
             </div>
           </div>
 
-          <div class="qa-wrapper"> 
+          <div class="qa-wrapper">
 
             <div class="question-wrapper">
               <span class="question">
                 Can I use Frontend Mentor projects in my portfolio?
               </span>
               <span class="question-icon">
-                <img src="assets/images/icon-plus.svg"/>
+                <img src="assets/images/icon-plus.svg" />
               </span>
             </div>
             <div class="answer">
@@ -184,13 +184,13 @@ f
               way to showcase your skills to potential employers!
             </div>
           </div>
-          <div class="qa-wrapper"> 
+          <div class="qa-wrapper">
             <div class="question-wrapper">
               <span class="question">
                 How can I get help if I'm stuck on a Frontend Mentor challenge?
               </span>
               <span class="question-icon">
-                <img src="assets/images/icon-plus.svg"/>
+                <img src="assets/images/icon-plus.svg" />
               </span>
             </div>
             <div class="answer">
@@ -202,7 +202,29 @@ f
       </div>
     </div>
   </div>
- 
+
+  <script>
+    window.onload = function () {
+      $(".question-icon > img").on("click", function () { 
+
+        var answerDomElement=$(this).parent().parent().parent().find(".answer");
+
+        console.log($(this).parent().parent().parent().find(".answer"));
+
+        var image=$(this).attr('src');
+
+        if(image.indexOf("icon-plus")>-1){
+          $(this).attr("src", "assets/images/icon-minus.svg");
+          $(answerDomElement).hide();
+        }
+        else{
+          $(this).attr("src", "assets/images/icon-plus.svg");
+          $( answerDomElement ).show();
+        }
+       
+      });
+    }
+  </script>
 
 </body>
 
