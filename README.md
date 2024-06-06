@@ -29,7 +29,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [faq_Accordi](https://matrix1984.github.io/faq_Accordi/) 
+- Solution URL: [Faq Accordion](https://matrix1984.github.io/faq_Accordi/) 
 
 ## My process
 
